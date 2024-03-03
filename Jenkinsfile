@@ -72,7 +72,7 @@ pipeline {
         stage("Trigger CD Pipeline") {
             steps {
                 script {
-                    sh "curl -v -k --user admin:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'http://35.153.226.107:8080/job/nodejs-cd-example/buildWithParameters?token=gitops-token'"
+                    sh "curl -v -k --user admin:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'http://ec2-35-153-226-107.compute-1.amazonaws.com:8080/job/nodejs-cd-example/buildWithParameters?token=gitops-token'"
                 }
             }
         }
@@ -86,7 +86,7 @@ pipeline {
                    "URL: ${env.BUILD_URL}<br/>",
                to: 'tongochung1809@gmail.com',                              
                attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
-               
+
         }
      }
 }
